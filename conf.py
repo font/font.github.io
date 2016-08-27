@@ -176,11 +176,13 @@ POSTS = (
     ("posts/*.rst", "posts", "post.tmpl"),
     ("posts/*.txt", "posts", "post.tmpl"),
     ("posts/*.html", "posts", "post.tmpl"),
+    ("posts/*.md", "posts", "post.tmpl"),
 )
 PAGES = (
     ("stories/*.rst", "stories", "story.tmpl"),
     ("stories/*.txt", "stories", "story.tmpl"),
     ("stories/*.html", "stories", "story.tmpl"),
+    ("stories/*.md", "stories", "story.tmpl"),
 )
 
 
@@ -557,7 +559,9 @@ REDIRECTIONS = []
 # For user.github.io OR organization.github.io pages, the DEPLOY branch
 # MUST be 'master', and 'gh-pages' for other repositories.
 # GITHUB_SOURCE_BRANCH = 'master'
+GITHUB_SOURCE_BRANCH = 'src'
 # GITHUB_DEPLOY_BRANCH = 'gh-pages'
+GITHUB_DEPLOY_BRANCH = 'master'
 
 # The name of the remote where you wish to push to, using github_deploy.
 # GITHUB_REMOTE_NAME = 'origin'
@@ -1008,9 +1012,11 @@ MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite', 'extra']
 # Show link to source for the posts?
 # Formerly known as HIDE_SOURCELINK (inverse)
 # SHOW_SOURCELINK = True
+SHOW_SOURCELINK = False
 # Copy the source files for your pages?
 # Setting it to False implies SHOW_SOURCELINK = False
 # COPY_SOURCES = True
+COPY_SOURCES = False
 
 # Modify the number of Post per Index Page
 # Defaults to 10
