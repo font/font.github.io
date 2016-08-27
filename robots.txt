@@ -1,0 +1,4 @@
+Sitemap: https://font.github.io/sitemapindex.xml
+
+User-Agent: *
+Host: font.github.io
