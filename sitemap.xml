@@ -6,47 +6,39 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
-  <loc>https://font.github.io/</loc>
+  <loc>http://ivanfont.com/</loc>
   <lastmod>2016-12-11T08:03:00Z</lastmod>
  </url>
  <url>
-  <loc>https://font.github.io/2016/</loc>
+  <loc>http://ivanfont.com/2016/</loc>
   <lastmod>2016-08-27T00:57:00Z</lastmod>
  </url>
  <url>
-  <loc>https://font.github.io/archive.html</loc>
+  <loc>http://ivanfont.com/archive.html</loc>
+  <lastmod>2016-12-11T08:49:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://ivanfont.com/categories/</loc>
+  <lastmod>2016-08-27T00:49:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://ivanfont.com/categories/cat_tech/</loc>
+  <lastmod>2016-08-27T00:49:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://ivanfont.com/categories/tech/</loc>
+  <lastmod>2016-08-27T00:49:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://ivanfont.com/posts/hello-world/</loc>
   <lastmod>2016-12-11T08:03:00Z</lastmod>
  </url>
  <url>
-  <loc>https://font.github.io/categories/</loc>
-  <lastmod>2016-08-27T00:49:00Z</lastmod>
- </url>
- <url>
-  <loc>https://font.github.io/categories/cat_tech/</loc>
-  <lastmod>2016-08-27T00:49:00Z</lastmod>
- </url>
- <url>
-  <loc>https://font.github.io/categories/tech/</loc>
-  <lastmod>2016-08-27T00:49:00Z</lastmod>
- </url>
- <url>
-  <loc>https://font.github.io/galleries/</loc>
-  <lastmod>2016-08-27T00:49:00Z</lastmod>
- </url>
- <url>
-  <loc>https://font.github.io/listings/</loc>
-  <lastmod>2016-08-27T00:49:00Z</lastmod>
- </url>
- <url>
-  <loc>https://font.github.io/posts/hello-world/</loc>
-  <lastmod>2016-12-11T08:03:00Z</lastmod>
- </url>
- <url>
-  <loc>https://font.github.io/stories/</loc>
+  <loc>http://ivanfont.com/stories/</loc>
   <lastmod>2016-12-11T02:03:00Z</lastmod>
  </url>
  <url>
-  <loc>https://font.github.io/stories/about-me/</loc>
+  <loc>http://ivanfont.com/stories/about-me/</loc>
   <lastmod>2016-12-11T02:03:00Z</lastmod>
  </url>
 </urlset>

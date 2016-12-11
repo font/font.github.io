@@ -1,4 +1,4 @@
-Sitemap: https://font.github.io/sitemapindex.xml
+Sitemap: http://ivanfont.com/sitemapindex.xml
 
 User-Agent: *
-Host: font.github.io
+Host: ivanfont.com
