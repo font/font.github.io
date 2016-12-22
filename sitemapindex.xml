@@ -6,19 +6,27 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
+  <loc>http://ivanfont.com/categories/cat_kubernetes.xml</loc>
+  <lastmod>2016-12-16T06:47:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://ivanfont.com/categories/cat_tech.xml</loc>
-  <lastmod>2016-12-11T08:49:00Z</lastmod>
+  <lastmod>2016-12-16T06:27:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://ivanfont.com/categories/tech-gce-kubernetes.xml</loc>
+  <lastmod>2016-12-16T06:47:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://ivanfont.com/categories/tech.xml</loc>
-  <lastmod>2016-12-11T08:49:00Z</lastmod>
+  <lastmod>2016-12-16T06:27:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://ivanfont.com/rss.xml</loc>
-  <lastmod>2016-12-11T08:49:00Z</lastmod>
+  <lastmod>2016-12-16T06:48:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://ivanfont.com/sitemap.xml</loc>
-  <lastmod>2016-12-11T09:03:00Z</lastmod>
+  <lastmod>2016-12-16T06:48:00Z</lastmod>
  </sitemap>
 </sitemapindex>
