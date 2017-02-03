@@ -2,7 +2,7 @@
 .. title: Creating custom Kubernetes cluster using Google Compute Engine (GCE)
 .. slug: creating-custom-kubernetes-cluster-using-google-compute-engine-gce
 .. date: 2016-12-15 17:11:31 UTC-08:00
-.. tags: tech gce kubernetes
+.. tags: gce, kubernetes
 .. category: kubernetes
 .. link: 
 .. description: Download and create a custom kubernetes cluster using Google Compute Engine (GCE)
