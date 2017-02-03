@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ivan Font (storage)</title><link>http://ivanfont.com/</link><description></description><atom:link rel="self" type="application/rss+xml" href="http://ivanfont.com/categories/storage.xml"></atom:link><language>en</language><lastBuildDate>Fri, 03 Feb 2017 20:36:13 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Deploying Containerized Ceph on a Kubernetes Cluster Using Google Compute Engine</title><link>http://ivanfont.com/posts/ceph-on-gce-kubernetes-cluster/</link><dc:creator>Ivan Font</dc:creator><description>&lt;div&gt;&lt;h3&gt;Quick Summary&lt;/h3&gt;
+&lt;p&gt;Recently we've been hard at work trying to set up dynamic provisioning of Ceph Rados
+Block Device storage on a Kubernetes cluster. This required:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Kubernetes version &amp;gt;= 1.5&lt;/li&gt;
+&lt;li&gt;The ability to install Ceph and RBD packages on all host nodes i.e. master and slaves&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Unfortunately we could not use Google Container Engine (GKE) for this because
+at first, it did not support version 1.5 since it was too new.
+Google quickly resolved that and has been really
+good at keeping up-to-date with the latest Kubernetes releases. However, the
+subsequent problem is that we needed to install Ceph and RBD packages on all host
+nodes. Even though Google does provide a &lt;code&gt;CONTAINER_VM&lt;/code&gt; image that is able to
+install packages, GKE does not provide access to the master to install the necessary
+packages. This seems like a limitation with GKE. So it was decided to move towards
+a manual deployment of a Kubernetes cluster. For the manual deployment we used
+Google Compute Engine and followed the nice example Kelsey Hightower provides:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/kelseyhightower/kubernetes-the-hard-way"&gt;Kubernetes the Hard Way&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;At first, I was hitting a DNS problem until I realized that there was a firewall rule missing for
+the POD CIDR that was being used. See &lt;a href="https://github.com/kelseyhightower/kubernetes-the-hard-way/issues/88"&gt;issue 88&lt;/a&gt; and the &lt;a href="https://github.com/kelseyhightower/kubernetes-the-hard-way/pull/117"&gt;pull request&lt;/a&gt; that resolves it for more details. It was also nice to script the deployment
+so we created some scripts for that as well but they have not yet been merged. In the
+meantime you can get them here:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/font/kubernetes-the-hard-way/tree/scripts"&gt;https://github.com/font/kubernetes-the-hard-way/tree/scripts&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In the end it was good to understand how the different components of Kubernetes
+fit together and be able to debug it a bit.&lt;/p&gt;
+&lt;p&gt;After Kubernetes was deployed we deployed Ceph and went about testing CephFS and RBD
+volume mounts, static provisioning of CephFS and RBD persistent volume claims, as
+well as dynamic provisioning of RBD persistent volume claims and they all worked great!&lt;/p&gt;
+&lt;h3&gt;Documentation&lt;/h3&gt;
+&lt;p&gt;If you're interested you can get the detailed documentation here:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/ceph/ceph-docker/tree/master/examples/kubernetes/gce"&gt;https://github.com/ceph/ceph-docker/tree/master/examples/kubernetes/gce&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Video Demonstration&lt;/h4&gt;
+&lt;p&gt;In the documentation you'll also find a link to this video demonstration that walks through those
+steps:&lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/ic38-19wIGY" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h4&gt;Enjoy!&lt;/h4&gt;&lt;/div&gt;</description><category>ceph</category><category>cloud</category><category>gce</category><category>google compute engine</category><category>kubernetes</category><category>storage</category><guid>http://ivanfont.com/posts/ceph-on-gce-kubernetes-cluster/</guid><pubDate>Fri, 03 Feb 2017 19:38:03 GMT</pubDate></item></channel></rss>

@@ -9,7 +9,7 @@
 <meta content="#5670d4" name="theme-color">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
 <link rel="canonical" href="http://ivanfont.com/">
-<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/creating-custom-kubernetes-cluster-using-google-compute-engine-gce/" type="text/html">
+<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/ceph-on-gce-kubernetes-cluster/" type="text/html">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -62,7 +62,67 @@
 
     
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/creating-custom-kubernetes-cluster-using-google-compute-engine-gce/" class="u-url">Creating custom Kubernetes cluster using Google Compute Engine (GCE)</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/ceph-on-gce-kubernetes-cluster/" class="u-url">Deploying Containerized Ceph on a Kubernetes Cluster Using Google Compute Engine</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Ivan Font
+            </span></p>
+            <p class="dateline"><a href="posts/ceph-on-gce-kubernetes-cluster/" rel="bookmark"><time class="published dt-published" datetime="2017-02-03T11:38:03-08:00" title="2017-02-03">2017-02-03</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/ceph-on-gce-kubernetes-cluster/#disqus_thread" data-disqus-identifier="cache/posts/ceph-on-gce-kubernetes-cluster.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>Quick Summary</h3>
+<p>Recently we've been hard at work trying to set up dynamic provisioning of Ceph Rados
+Block Device storage on a Kubernetes cluster. This required:</p>
+<ul>
+<li>Kubernetes version &gt;= 1.5</li>
+<li>The ability to install Ceph and RBD packages on all host nodes i.e. master and slaves</li>
+</ul>
+<p>Unfortunately we could not use Google Container Engine (GKE) for this because
+at first, it did not support version 1.5 since it was too new.
+Google quickly resolved that and has been really
+good at keeping up-to-date with the latest Kubernetes releases. However, the
+subsequent problem is that we needed to install Ceph and RBD packages on all host
+nodes. Even though Google does provide a <code>CONTAINER_VM</code> image that is able to
+install packages, GKE does not provide access to the master to install the necessary
+packages. This seems like a limitation with GKE. So it was decided to move towards
+a manual deployment of a Kubernetes cluster. For the manual deployment we used
+Google Compute Engine and followed the nice example Kelsey Hightower provides:</p>
+<ul>
+<li><a href="https://github.com/kelseyhightower/kubernetes-the-hard-way">Kubernetes the Hard Way</a></li>
+</ul>
+<p>At first, I was hitting a DNS problem until I realized that there was a firewall rule missing for
+the POD CIDR that was being used. See <a href="https://github.com/kelseyhightower/kubernetes-the-hard-way/issues/88">issue 88</a> and the <a href="https://github.com/kelseyhightower/kubernetes-the-hard-way/pull/117">pull request</a> that resolves it for more details. It was also nice to script the deployment
+so we created some scripts for that as well but they have not yet been merged. In the
+meantime you can get them here:</p>
+<ul>
+<li><a href="https://github.com/font/kubernetes-the-hard-way/tree/scripts">https://github.com/font/kubernetes-the-hard-way/tree/scripts</a></li>
+</ul>
+<p>In the end it was good to understand how the different components of Kubernetes
+fit together and be able to debug it a bit.</p>
+<p>After Kubernetes was deployed we deployed Ceph and went about testing CephFS and RBD
+volume mounts, static provisioning of CephFS and RBD persistent volume claims, as
+well as dynamic provisioning of RBD persistent volume claims and they all worked great!</p>
+<h3>Documentation</h3>
+<p>If you're interested you can get the detailed documentation here:</p>
+<ul>
+<li><a href="https://github.com/ceph/ceph-docker/tree/master/examples/kubernetes/gce">https://github.com/ceph/ceph-docker/tree/master/examples/kubernetes/gce</a></li>
+</ul>
+<h4>Video Demonstration</h4>
+<p>In the documentation you'll also find a link to this video demonstration that walks through those
+steps:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ic38-19wIGY" frameborder="0" allowfullscreen></iframe>
+
+<h4>Enjoy!</h4>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/creating-custom-kubernetes-cluster-using-google-compute-engine-gce/" class="u-url">Creating custom Kubernetes cluster using Google Compute Engine (GCE)</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">
                 Ivan Font
@@ -434,7 +494,7 @@ a particular version of Kubernetes with the ability to set some GCE configuratio
         <!--End of body content-->
 
         <footer id="footer">
-            Contents © 2016         <a href="mailto:">Ivan Font</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            Contents © 2017         <a href="mailto:">Ivan Font</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
             
         </footer>
 </div>

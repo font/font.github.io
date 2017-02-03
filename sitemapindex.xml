@@ -6,12 +6,44 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
+  <loc>http://ivanfont.com/categories/cat_ceph-kubernetes-cloud.xml</loc>
+  <lastmod>2017-02-03T19:47:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://ivanfont.com/categories/cat_kubernetes.xml</loc>
-  <lastmod>2016-12-22T06:36:00Z</lastmod>
+  <lastmod>2017-02-03T19:47:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://ivanfont.com/categories/cat_tech.xml</loc>
-  <lastmod>2016-12-16T06:27:00Z</lastmod>
+  <lastmod>2017-02-03T19:47:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://ivanfont.com/categories/ceph-kubernetes-cloud-gce-google-compute-engine.xml</loc>
+  <lastmod>2017-02-03T19:42:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://ivanfont.com/categories/ceph.xml</loc>
+  <lastmod>2017-02-03T19:47:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://ivanfont.com/categories/cloud.xml</loc>
+  <lastmod>2017-02-03T19:47:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://ivanfont.com/categories/gce.xml</loc>
+  <lastmod>2017-02-03T19:47:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://ivanfont.com/categories/google-compute-engine.xml</loc>
+  <lastmod>2017-02-03T19:47:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://ivanfont.com/categories/kubernetes.xml</loc>
+  <lastmod>2017-02-03T19:47:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://ivanfont.com/categories/storage.xml</loc>
+  <lastmod>2017-02-03T19:47:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://ivanfont.com/categories/tech-gce-kubernetes.xml</loc>
@@ -23,10 +55,10 @@
  </sitemap>
  <sitemap>
   <loc>http://ivanfont.com/rss.xml</loc>
-  <lastmod>2016-12-22T06:36:00Z</lastmod>
+  <lastmod>2017-02-03T19:47:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://ivanfont.com/sitemap.xml</loc>
-  <lastmod>2016-12-22T22:46:00Z</lastmod>
+  <lastmod>2017-02-03T19:47:00Z</lastmod>
  </sitemap>
 </sitemapindex>
