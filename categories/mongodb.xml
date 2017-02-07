@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Ivan Font (Posts about mongodb)</title><link>http://ivanfont.com/</link><description></description><atom:link type="application/rss+xml" rel="self" href="http://ivanfont.com/categories/mongodb.xml"></atom:link><language>en</language><lastBuildDate>Tue, 07 Feb 2017 01:10:28 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Pacman NGINX PHP MongoDB Application</title><link>http://ivanfont.com/posts/pacman-nginx-app/</link><dc:creator>Ivan Font</dc:creator><description>&lt;div&gt;&lt;h3&gt;Intro&lt;/h3&gt;
+&lt;p&gt;I've started working on a Kubernetes reference application for demonstration purposes. This reference application will continue to evolve
+to also work with cloud federation capabilities in Kubernetes. I will provide updates as the application evolves.&lt;/p&gt;
+&lt;h3&gt;Pacman Game Architecture Brief Overview&lt;/h3&gt;
+&lt;h4&gt;Pacman&lt;/h4&gt;
+&lt;p&gt;The Pacman game is a slightly modified version of the open source Pacman game written in HTML5 with Javascript. You can get the modified
+&lt;a href="https://github.com/font/pacman-canvas"&gt;Pacman game source code here&lt;/a&gt;. The modifications are particularly around the backend PHP API. The original
+game used SQLite3 as the storage backend for reading and writing high scores. This change replaces SQLite3 with &lt;a href="https://www.mongodb.com/"&gt;MongoDB&lt;/a&gt;
+as the storage mechanism.&lt;/p&gt;
+&lt;h4&gt;NGINX + PHP FPM&lt;/h4&gt;
+&lt;p&gt;&lt;a href="https://www.nginx.com/"&gt;NGINX&lt;/a&gt; is used as the web server to host the Pacman game application. It is configured with &lt;a href="https://php-fpm.org/"&gt;PHP FPM&lt;/a&gt; support for the backend PHP API.&lt;/p&gt;
+&lt;h4&gt;PHP&lt;/h4&gt;
+&lt;p&gt;PHP FPM is used for the PHP API to receive read and write requests from clients and perform database operations. The
+&lt;a href="http://php.net/manual/en/set.mongodb.php"&gt;PHP MongoDB driver extension&lt;/a&gt; contains the minimal API for core driver functionality. In addition, the
+&lt;a href="http://php.net/manual/en/mongodb.tutorial.library.php"&gt;PHP library for MongoDB&lt;/a&gt; provides the higher level APIs. Both are needed.&lt;/p&gt;
+&lt;h4&gt;MongoDB&lt;/h4&gt;
+&lt;p&gt;&lt;a href="https://www.mongodb.com/"&gt;MongoDB&lt;/a&gt; is used as the backend database to store the Pacman game's high score user data.&lt;/p&gt;
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;For a detailed overview of the Kubernetes reference application and how to set it up yourself, see the
+&lt;a href="https://github.com/font/k8s-example-apps/tree/master/pacman-nginx-app"&gt;README&lt;/a&gt; in the repository.&lt;/p&gt;
+&lt;h4&gt;Have fun!&lt;/h4&gt;
+&lt;p&gt;&lt;img src="http://ivanfont.com/images/pacman.png"&gt;&lt;/p&gt;&lt;/div&gt;</description><category>game</category><category>gce</category><category>google compute engine</category><category>kubernetes</category><category>mongodb</category><category>nginx</category><category>pacman</category><guid>http://ivanfont.com/posts/pacman-nginx-app/</guid><pubDate>Tue, 07 Feb 2017 00:35:14 GMT</pubDate></item></channel></rss>

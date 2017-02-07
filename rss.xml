@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ivan Font</title><link>http://ivanfont.com/</link><description>Ivan Font</description><atom:link rel="self" type="application/rss+xml" href="http://ivanfont.com/rss.xml"></atom:link><language>en</language><lastBuildDate>Fri, 03 Feb 2017 20:36:13 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Deploying Containerized Ceph on a Kubernetes Cluster Using Google Compute Engine</title><link>http://ivanfont.com/posts/ceph-on-gce-kubernetes-cluster/</link><dc:creator>Ivan Font</dc:creator><description>&lt;div&gt;&lt;h3&gt;Quick Summary&lt;/h3&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Ivan Font</title><link>http://ivanfont.com/</link><description>Ivan Font</description><atom:link type="application/rss+xml" rel="self" href="http://ivanfont.com/rss.xml"></atom:link><language>en</language><lastBuildDate>Tue, 07 Feb 2017 01:10:28 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Pacman NGINX PHP MongoDB Application</title><link>http://ivanfont.com/posts/pacman-nginx-app/</link><dc:creator>Ivan Font</dc:creator><description>&lt;div&gt;&lt;h3&gt;Intro&lt;/h3&gt;
+&lt;p&gt;I've started working on a Kubernetes reference application for demonstration purposes. This reference application will continue to evolve
+to also work with cloud federation capabilities in Kubernetes. I will provide updates as the application evolves.&lt;/p&gt;
+&lt;h3&gt;Pacman Game Architecture Brief Overview&lt;/h3&gt;
+&lt;h4&gt;Pacman&lt;/h4&gt;
+&lt;p&gt;The Pacman game is a slightly modified version of the open source Pacman game written in HTML5 with Javascript. You can get the modified
+&lt;a href="https://github.com/font/pacman-canvas"&gt;Pacman game source code here&lt;/a&gt;. The modifications are particularly around the backend PHP API. The original
+game used SQLite3 as the storage backend for reading and writing high scores. This change replaces SQLite3 with &lt;a href="https://www.mongodb.com/"&gt;MongoDB&lt;/a&gt;
+as the storage mechanism.&lt;/p&gt;
+&lt;h4&gt;NGINX + PHP FPM&lt;/h4&gt;
+&lt;p&gt;&lt;a href="https://www.nginx.com/"&gt;NGINX&lt;/a&gt; is used as the web server to host the Pacman game application. It is configured with &lt;a href="https://php-fpm.org/"&gt;PHP FPM&lt;/a&gt; support for the backend PHP API.&lt;/p&gt;
+&lt;h4&gt;PHP&lt;/h4&gt;
+&lt;p&gt;PHP FPM is used for the PHP API to receive read and write requests from clients and perform database operations. The
+&lt;a href="http://php.net/manual/en/set.mongodb.php"&gt;PHP MongoDB driver extension&lt;/a&gt; contains the minimal API for core driver functionality. In addition, the
+&lt;a href="http://php.net/manual/en/mongodb.tutorial.library.php"&gt;PHP library for MongoDB&lt;/a&gt; provides the higher level APIs. Both are needed.&lt;/p&gt;
+&lt;h4&gt;MongoDB&lt;/h4&gt;
+&lt;p&gt;&lt;a href="https://www.mongodb.com/"&gt;MongoDB&lt;/a&gt; is used as the backend database to store the Pacman game's high score user data.&lt;/p&gt;
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;For a detailed overview of the Kubernetes reference application and how to set it up yourself, see the
+&lt;a href="https://github.com/font/k8s-example-apps/tree/master/pacman-nginx-app"&gt;README&lt;/a&gt; in the repository.&lt;/p&gt;
+&lt;h4&gt;Have fun!&lt;/h4&gt;
+&lt;p&gt;&lt;img src="http://ivanfont.com/images/pacman.png"&gt;&lt;/p&gt;&lt;/div&gt;</description><category>game</category><category>gce</category><category>google compute engine</category><category>kubernetes</category><category>mongodb</category><category>nginx</category><category>pacman</category><guid>http://ivanfont.com/posts/pacman-nginx-app/</guid><pubDate>Tue, 07 Feb 2017 00:35:14 GMT</pubDate></item><item><title>Deploying Containerized Ceph on a Kubernetes Cluster Using Google Compute Engine</title><link>http://ivanfont.com/posts/ceph-on-gce-kubernetes-cluster/</link><dc:creator>Ivan Font</dc:creator><description>&lt;div&gt;&lt;h3&gt;Quick Summary&lt;/h3&gt;
 &lt;p&gt;Recently we've been hard at work trying to set up dynamic provisioning of Ceph Rados
 Block Device storage on a Kubernetes cluster. This required:&lt;/p&gt;
 &lt;ul&gt;
@@ -74,12 +95,12 @@ that you can create an instance and SSH into it:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;$ gcloud compute instances create example-instance --image-family ubuntu-1604-lts --image-project ubuntu-os-cloud
 Created &lt;span class="o"&gt;[&lt;/span&gt;https://www.googleapis.com/compute/v1/projects/gce-kube-cluster/zones/us-west1-a/instances/example-instance&lt;span class="o"&gt;]&lt;/span&gt;.
 NAME              ZONE        MACHINE_TYPE   PREEMPTIBLE  INTERNAL_IP  EXTERNAL_IP     STATUS
-example-instance  us-west1-a  n1-standard-1               10.138.0.2   104.196.227.36  RUNNING
+example-instance  us-west1-a  n1-standard-1               &lt;span class="m"&gt;10&lt;/span&gt;.138.0.2   &lt;span class="m"&gt;104&lt;/span&gt;.196.227.36  RUNNING
 gcloud compute ssh example-instance
 Updating project ssh metadata...&lt;span class="p"&gt;|&lt;/span&gt;Updated &lt;span class="o"&gt;[&lt;/span&gt;https://www.googleapis.com/compute/v1/projects/gce-kube-cluster&lt;span class="o"&gt;]&lt;/span&gt;.
 Updating project ssh metadata...done.
 Warning: Permanently added &lt;span class="s1"&gt;'compute.2723409803693978954'&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;ECDSA&lt;span class="o"&gt;)&lt;/span&gt; to the list of known hosts.
-Welcome to Ubuntu 16.04.1 LTS &lt;span class="o"&gt;(&lt;/span&gt;GNU/Linux 4.4.0-53-generic x86_64&lt;span class="o"&gt;)&lt;/span&gt;
+Welcome to Ubuntu &lt;span class="m"&gt;16&lt;/span&gt;.04.1 LTS &lt;span class="o"&gt;(&lt;/span&gt;GNU/Linux &lt;span class="m"&gt;4&lt;/span&gt;.4.0-53-generic x86_64&lt;span class="o"&gt;)&lt;/span&gt;
 
  * Documentation:  https://help.ubuntu.com
  * Management:     https://landscape.canonical.com
@@ -284,7 +305,7 @@ $ grep -E &lt;span class="s1"&gt;'(\w)+='&lt;/span&gt; cluster/gce/config-defaul
 &lt;span class="nv"&gt;ENABLE_NODE_LOGGING&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;KUBE_ENABLE_NODE_LOGGING&lt;/span&gt;&lt;span class="k"&gt;:-&lt;/span&gt;&lt;span class="nv"&gt;true&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
 &lt;span class="nv"&gt;LOGGING_DESTINATION&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;KUBE_LOGGING_DESTINATION&lt;/span&gt;&lt;span class="k"&gt;:-&lt;/span&gt;&lt;span class="nv"&gt;gcp&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="c1"&gt;# options: elasticsearch, gcp&lt;/span&gt;
 &lt;span class="nv"&gt;ENABLE_CLUSTER_LOGGING&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;KUBE_ENABLE_CLUSTER_LOGGING&lt;/span&gt;&lt;span class="k"&gt;:-&lt;/span&gt;&lt;span class="nv"&gt;true&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
-&lt;span class="nv"&gt;ELASTICSEARCH_LOGGING_REPLICAS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;1
+&lt;span class="nv"&gt;ELASTICSEARCH_LOGGING_REPLICAS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;
   &lt;span class="nv"&gt;EXTRA_DOCKER_OPTS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;EXTRA_DOCKER_OPTS&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; --insecure-registry 10.0.0.0/8"&lt;/span&gt;
 &lt;span class="nv"&gt;RUNTIME_CONFIG&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;KUBE_RUNTIME_CONFIG&lt;/span&gt;&lt;span class="k"&gt;:-&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
 &lt;span class="nv"&gt;FEATURE_GATES&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;KUBE_FEATURE_GATES&lt;/span&gt;&lt;span class="k"&gt;:-&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;

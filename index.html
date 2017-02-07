@@ -6,10 +6,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ivan Font</title>
 <link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
-<meta content="#5670d4" name="theme-color">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
 <link rel="canonical" href="http://ivanfont.com/">
-<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/ceph-on-gce-kubernetes-cluster/" type="text/html">
+<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/pacman-nginx-app/" type="text/html">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -62,7 +63,46 @@
 
     
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/ceph-on-gce-kubernetes-cluster/" class="u-url">Deploying Containerized Ceph on a Kubernetes Cluster Using Google Compute Engine</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/pacman-nginx-app/" class="u-url">Pacman NGINX PHP MongoDB Application</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Ivan Font
+            </span></p>
+            <p class="dateline"><a href="posts/pacman-nginx-app/" rel="bookmark"><time class="published dt-published" datetime="2017-02-06T16:35:14-08:00" title="2017-02-06">2017-02-06</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/pacman-nginx-app/#disqus_thread" data-disqus-identifier="cache/posts/pacman-nginx-app.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>Intro</h3>
+<p>I've started working on a Kubernetes reference application for demonstration purposes. This reference application will continue to evolve
+to also work with cloud federation capabilities in Kubernetes. I will provide updates as the application evolves.</p>
+<h3>Pacman Game Architecture Brief Overview</h3>
+<h4>Pacman</h4>
+<p>The Pacman game is a slightly modified version of the open source Pacman game written in HTML5 with Javascript. You can get the modified
+<a href="https://github.com/font/pacman-canvas">Pacman game source code here</a>. The modifications are particularly around the backend PHP API. The original
+game used SQLite3 as the storage backend for reading and writing high scores. This change replaces SQLite3 with <a href="https://www.mongodb.com/">MongoDB</a>
+as the storage mechanism.</p>
+<h4>NGINX + PHP FPM</h4>
+<p><a href="https://www.nginx.com/">NGINX</a> is used as the web server to host the Pacman game application. It is configured with <a href="https://php-fpm.org/">PHP FPM</a> support for the backend PHP API.</p>
+<h4>PHP</h4>
+<p>PHP FPM is used for the PHP API to receive read and write requests from clients and perform database operations. The
+<a href="http://php.net/manual/en/set.mongodb.php">PHP MongoDB driver extension</a> contains the minimal API for core driver functionality. In addition, the
+<a href="http://php.net/manual/en/mongodb.tutorial.library.php">PHP library for MongoDB</a> provides the higher level APIs. Both are needed.</p>
+<h4>MongoDB</h4>
+<p><a href="https://www.mongodb.com/">MongoDB</a> is used as the backend database to store the Pacman game's high score user data.</p>
+<h3>Conclusion</h3>
+<p>For a detailed overview of the Kubernetes reference application and how to set it up yourself, see the
+<a href="https://github.com/font/k8s-example-apps/tree/master/pacman-nginx-app">README</a> in the repository.</p>
+<h4>Have fun!</h4>
+<p><img src="images/pacman.png"></p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/ceph-on-gce-kubernetes-cluster/" class="u-url">Deploying Containerized Ceph on a Kubernetes Cluster Using Google Compute Engine</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">
                 Ivan Font
@@ -170,12 +210,12 @@ that you can create an instance and SSH into it:</p>
 <pre class="code literal-block"><span></span>$ gcloud compute instances create example-instance --image-family ubuntu-1604-lts --image-project ubuntu-os-cloud
 Created <span class="o">[</span>https://www.googleapis.com/compute/v1/projects/gce-kube-cluster/zones/us-west1-a/instances/example-instance<span class="o">]</span>.
 NAME              ZONE        MACHINE_TYPE   PREEMPTIBLE  INTERNAL_IP  EXTERNAL_IP     STATUS
-example-instance  us-west1-a  n1-standard-1               10.138.0.2   104.196.227.36  RUNNING
+example-instance  us-west1-a  n1-standard-1               <span class="m">10</span>.138.0.2   <span class="m">104</span>.196.227.36  RUNNING
 gcloud compute ssh example-instance
 Updating project ssh metadata...<span class="p">|</span>Updated <span class="o">[</span>https://www.googleapis.com/compute/v1/projects/gce-kube-cluster<span class="o">]</span>.
 Updating project ssh metadata...done.
 Warning: Permanently added <span class="s1">'compute.2723409803693978954'</span> <span class="o">(</span>ECDSA<span class="o">)</span> to the list of known hosts.
-Welcome to Ubuntu 16.04.1 LTS <span class="o">(</span>GNU/Linux 4.4.0-53-generic x86_64<span class="o">)</span>
+Welcome to Ubuntu <span class="m">16</span>.04.1 LTS <span class="o">(</span>GNU/Linux <span class="m">4</span>.4.0-53-generic x86_64<span class="o">)</span>
 
  * Documentation:  https://help.ubuntu.com
  * Management:     https://landscape.canonical.com
@@ -383,7 +423,7 @@ $ grep -E <span class="s1">'(\w)+='</span> cluster/gce/config-default.sh
 <span class="nv">ENABLE_NODE_LOGGING</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">KUBE_ENABLE_NODE_LOGGING</span><span class="k">:-</span><span class="nv">true</span><span class="si">}</span><span class="s2">"</span>
 <span class="nv">LOGGING_DESTINATION</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">KUBE_LOGGING_DESTINATION</span><span class="k">:-</span><span class="nv">gcp</span><span class="si">}</span><span class="s2">"</span> <span class="c1"># options: elasticsearch, gcp</span>
 <span class="nv">ENABLE_CLUSTER_LOGGING</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">KUBE_ENABLE_CLUSTER_LOGGING</span><span class="k">:-</span><span class="nv">true</span><span class="si">}</span><span class="s2">"</span>
-<span class="nv">ELASTICSEARCH_LOGGING_REPLICAS</span><span class="o">=</span>1
+<span class="nv">ELASTICSEARCH_LOGGING_REPLICAS</span><span class="o">=</span><span class="m">1</span>
   <span class="nv">EXTRA_DOCKER_OPTS</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">EXTRA_DOCKER_OPTS</span><span class="si">}</span><span class="s2"> --insecure-registry 10.0.0.0/8"</span>
 <span class="nv">RUNTIME_CONFIG</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">KUBE_RUNTIME_CONFIG</span><span class="k">:-</span><span class="si">}</span><span class="s2">"</span>
 <span class="nv">FEATURE_GATES</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">KUBE_FEATURE_GATES</span><span class="k">:-</span><span class="si">}</span><span class="s2">"</span>

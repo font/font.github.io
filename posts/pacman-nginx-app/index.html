@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pacman NGINX PHP MongoDB Application | Ivan Font</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="http://ivanfont.com/posts/pacman-nginx-app/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Ivan Font">
+<link rel="prev" href="../ceph-on-gce-kubernetes-cluster/" title="Deploying Containerized Ceph on a Kubernetes Cluster Using Google Compute Engine" type="text/html">
+<meta property="og:site_name" content="Ivan Font">
+<meta property="og:title" content="Pacman NGINX PHP MongoDB Application">
+<meta property="og:url" content="http://ivanfont.com/posts/pacman-nginx-app/">
+<meta property="og:description" content="Intro
+I've started working on a Kubernetes reference application for demonstration purposes. This reference application will continue to evolve
+to also work with cloud federation capabilities in Kuber">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2017-02-06T16:35:14-08:00">
+<meta property="article:tag" content="game">
+<meta property="article:tag" content="gce">
+<meta property="article:tag" content="google compute engine">
+<meta property="article:tag" content="kubernetes">
+<meta property="article:tag" content="mongodb">
+<meta property="article:tag" content="nginx">
+<meta property="article:tag" content="pacman">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://ivanfont.com/">
+
+                <span id="blog-title">Ivan Font</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../../archive.html">Archive</a>
+                </li>
+<li>
+<a href="../../stories/about-me/">About Me</a>
+                </li>
+<li>
+<a href="../../rss.xml">RSS feed</a>
+                </li>
+<li>
+<a href="../../categories/">Tags</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Pacman NGINX PHP MongoDB Application</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                    Ivan Font
+            </span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2017-02-06T16:35:14-08:00" itemprop="datePublished" title="2017-02-06">2017-02-06</time></a></p>
+                <p class="commentline">
+        
+    <a href="#disqus_thread" data-disqus-identifier="cache/posts/pacman-nginx-app.html">Comments</a>
+
+
+            
+
+        </p>
+</div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<h3>Intro</h3>
+<p>I've started working on a Kubernetes reference application for demonstration purposes. This reference application will continue to evolve
+to also work with cloud federation capabilities in Kubernetes. I will provide updates as the application evolves.</p>
+<h3>Pacman Game Architecture Brief Overview</h3>
+<h4>Pacman</h4>
+<p>The Pacman game is a slightly modified version of the open source Pacman game written in HTML5 with Javascript. You can get the modified
+<a href="https://github.com/font/pacman-canvas">Pacman game source code here</a>. The modifications are particularly around the backend PHP API. The original
+game used SQLite3 as the storage backend for reading and writing high scores. This change replaces SQLite3 with <a href="https://www.mongodb.com/">MongoDB</a>
+as the storage mechanism.</p>
+<h4>NGINX + PHP FPM</h4>
+<p><a href="https://www.nginx.com/">NGINX</a> is used as the web server to host the Pacman game application. It is configured with <a href="https://php-fpm.org/">PHP FPM</a> support for the backend PHP API.</p>
+<h4>PHP</h4>
+<p>PHP FPM is used for the PHP API to receive read and write requests from clients and perform database operations. The
+<a href="http://php.net/manual/en/set.mongodb.php">PHP MongoDB driver extension</a> contains the minimal API for core driver functionality. In addition, the
+<a href="http://php.net/manual/en/mongodb.tutorial.library.php">PHP library for MongoDB</a> provides the higher level APIs. Both are needed.</p>
+<h4>MongoDB</h4>
+<p><a href="https://www.mongodb.com/">MongoDB</a> is used as the backend database to store the Pacman game's high score user data.</p>
+<h3>Conclusion</h3>
+<p>For a detailed overview of the Kubernetes reference application and how to set it up yourself, see the
+<a href="https://github.com/font/k8s-example-apps/tree/master/pacman-nginx-app">README</a> in the repository.</p>
+<h4>Have fun!</h4>
+<p><img src="../../images/pacman.png"></p>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../categories/game/" rel="tag">game</a></li>
+            <li><a class="tag p-category" href="../../categories/gce/" rel="tag">gce</a></li>
+            <li><a class="tag p-category" href="../../categories/google-compute-engine/" rel="tag">google compute engine</a></li>
+            <li><a class="tag p-category" href="../../categories/kubernetes/" rel="tag">kubernetes</a></li>
+            <li><a class="tag p-category" href="../../categories/mongodb/" rel="tag">mongodb</a></li>
+            <li><a class="tag p-category" href="../../categories/nginx/" rel="tag">nginx</a></li>
+            <li><a class="tag p-category" href="../../categories/pacman/" rel="tag">pacman</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../ceph-on-gce-kubernetes-cluster/" rel="prev" title="Deploying Containerized Ceph on a Kubernetes Cluster Using Google Compute Engine">Previous post</a>
+            </li>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="ivanfont",
+            disqus_url="http://ivanfont.com/posts/pacman-nginx-app/",
+        disqus_title="Pacman NGINX PHP MongoDB Application",
+        disqus_identifier="cache/posts/pacman-nginx-app.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="ivanfont";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2017         <a href="mailto:">Ivan Font</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

@@ -6,7 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Creating custom Kubernetes cluster using Google Compute Engine (GCE) | Ivan Font</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
-<meta content="#5670d4" name="theme-color">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
 <link rel="canonical" href="http://ivanfont.com/posts/creating-custom-kubernetes-cluster-using-google-compute-engine-gce/">
 <!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="description" itemprop="description" content="Download and create a custom kubernetes cluster using Google Compute Engine (GCE)">
@@ -123,12 +124,12 @@ that you can create an instance and SSH into it:</p>
 <pre class="code literal-block"><span></span>$ gcloud compute instances create example-instance --image-family ubuntu-1604-lts --image-project ubuntu-os-cloud
 Created <span class="o">[</span>https://www.googleapis.com/compute/v1/projects/gce-kube-cluster/zones/us-west1-a/instances/example-instance<span class="o">]</span>.
 NAME              ZONE        MACHINE_TYPE   PREEMPTIBLE  INTERNAL_IP  EXTERNAL_IP     STATUS
-example-instance  us-west1-a  n1-standard-1               10.138.0.2   104.196.227.36  RUNNING
+example-instance  us-west1-a  n1-standard-1               <span class="m">10</span>.138.0.2   <span class="m">104</span>.196.227.36  RUNNING
 gcloud compute ssh example-instance
 Updating project ssh metadata...<span class="p">|</span>Updated <span class="o">[</span>https://www.googleapis.com/compute/v1/projects/gce-kube-cluster<span class="o">]</span>.
 Updating project ssh metadata...done.
 Warning: Permanently added <span class="s1">'compute.2723409803693978954'</span> <span class="o">(</span>ECDSA<span class="o">)</span> to the list of known hosts.
-Welcome to Ubuntu 16.04.1 LTS <span class="o">(</span>GNU/Linux 4.4.0-53-generic x86_64<span class="o">)</span>
+Welcome to Ubuntu <span class="m">16</span>.04.1 LTS <span class="o">(</span>GNU/Linux <span class="m">4</span>.4.0-53-generic x86_64<span class="o">)</span>
 
  * Documentation:  https://help.ubuntu.com
  * Management:     https://landscape.canonical.com
@@ -336,7 +337,7 @@ $ grep -E <span class="s1">'(\w)+='</span> cluster/gce/config-default.sh
 <span class="nv">ENABLE_NODE_LOGGING</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">KUBE_ENABLE_NODE_LOGGING</span><span class="k">:-</span><span class="nv">true</span><span class="si">}</span><span class="s2">"</span>
 <span class="nv">LOGGING_DESTINATION</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">KUBE_LOGGING_DESTINATION</span><span class="k">:-</span><span class="nv">gcp</span><span class="si">}</span><span class="s2">"</span> <span class="c1"># options: elasticsearch, gcp</span>
 <span class="nv">ENABLE_CLUSTER_LOGGING</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">KUBE_ENABLE_CLUSTER_LOGGING</span><span class="k">:-</span><span class="nv">true</span><span class="si">}</span><span class="s2">"</span>
-<span class="nv">ELASTICSEARCH_LOGGING_REPLICAS</span><span class="o">=</span>1
+<span class="nv">ELASTICSEARCH_LOGGING_REPLICAS</span><span class="o">=</span><span class="m">1</span>
   <span class="nv">EXTRA_DOCKER_OPTS</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">EXTRA_DOCKER_OPTS</span><span class="si">}</span><span class="s2"> --insecure-registry 10.0.0.0/8"</span>
 <span class="nv">RUNTIME_CONFIG</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">KUBE_RUNTIME_CONFIG</span><span class="k">:-</span><span class="si">}</span><span class="s2">"</span>
 <span class="nv">FEATURE_GATES</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">KUBE_FEATURE_GATES</span><span class="k">:-</span><span class="si">}</span><span class="s2">"</span>
