@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>bash-it: an alternative to oh-my-zsh | Ivan Font</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="http://ivanfont.com/posts/bash-it-an-alternative-to-oh-my-zsh/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Ivan Font">
+<link rel="prev" href="../pacman-nginx-app/" title="Pacman NGINX PHP MongoDB Application" type="text/html">
+<meta property="og:site_name" content="Ivan Font">
+<meta property="og:title" content="bash-it: an alternative to oh-my-zsh">
+<meta property="og:url" content="http://ivanfont.com/posts/bash-it-an-alternative-to-oh-my-zsh/">
+<meta property="og:description" content="Trying out zsh
+I have noticed that many people seem to be switching shells to zsh. In fact, I even tried it myself to see what the hype was all about. :)
+So for a while there I was actually feeling ju">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2017-02-28T13:56:50-08:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://ivanfont.com/">
+
+                <span id="blog-title">Ivan Font</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../../archive.html">Archive</a>
+                </li>
+<li>
+<a href="../../stories/about-me/">About Me</a>
+                </li>
+<li>
+<a href="../../rss.xml">RSS feed</a>
+                </li>
+<li>
+<a href="../../categories/">Tags</a>
+
+                
+            </li>
+</ul>
+<!-- Google custom search --><form method="get" action="https://www.google.com/search" class="navbar-form navbar-right" role="search">
+<div class="form-group">
+<input type="text" name="q" class="form-control" placeholder="Search">
+</div>
+<button type="submit" class="btn btn-primary">
+	<span class="glyphicon glyphicon-search"></span>
+</button>
+<input type="hidden" name="sitesearch" value="http://ivanfont.com/">
+</form>
+<!-- End of custom search -->
+
+
+            <ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">bash-it: an alternative to oh-my-zsh</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                    Ivan Font
+            </span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2017-02-28T13:56:50-08:00" itemprop="datePublished" title="2017-02-28">2017-02-28</time></a></p>
+                <p class="commentline">
+        
+    <a href="#disqus_thread" data-disqus-identifier="cache/posts/bash-it-an-alternative-to-oh-my-zsh.html">Comments</a>
+
+
+            
+
+        </p>
+</div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<h3>Trying out zsh</h3>
+<p>I have noticed that many people seem to be switching shells to <code>zsh</code>. In fact, I even tried it myself to see what the hype was all about. :)</p>
+<p>So for a while there I was actually feeling just as good using <code>zsh</code> as <code>bash</code>. That was until I started discovering some idiosyncrasies with <code>zsh</code> that were different from <code>bash</code>.
+It appeared that <code>zsh</code> was not quite as backwards compatible with <code>bash</code>. Even though it seems to support the same features, it does so with similar but
+different syntax. This made it quite painful because every system I work on has <code>bash</code> installed and used by default, but not necessarily <code>zsh</code>. Also,
+many scripts out there in repositories are all coded to use <code>bash</code>. Now of course you can specify the shebang to make sure the scripts use <code>bash</code>, but why would I want to use a different shell
+than the scripts or systems I'm working with use themselves? I would then have to learn and maintain scripts for two different shells depending on what
+I'm working on.</p>
+<h4>oh-my-zsh</h4>
+<p>I'll also add that the most promising feature of switching to <code>zsh</code> was the awesome <a href="https://github.com/robbyrussell/oh-my-zsh"><code>oh-my-zsh</code></a> GitHub project that gives you a highly customizable framework.
+This seemed to clearly be lacking in <code>bash</code> and so it was this that made it quite compelling for me at first. In addition, I agree that <code>zsh</code>
+does have some nice features that work right out of the gate, but it felt like it was more to do with <code>oh-my-zsh</code> than <code>zsh</code> itself.
+Therefore, nothing was really compelling enough that you couldn't do with <code>bash</code>, albiet with some customizations.</p>
+<h3>Moving back to bash</h3>
+<h4>bash-it</h4>
+<p>This is where I stumbled upon <a href="https://github.com/Bash-it/bash-it">bash-it</a>. It literally promotes itself as being a
+shameless ripoff of <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a>. Finally, this seemed to be the piece that was missing from <code>bash</code> that one was able to get
+with <code>zsh</code> quite easily. I immediately started using it and enjoyed bashing again.</p>
+<p><a href="https://github.com/Bash-it/bash-it">bash-it</a> has all of the benefits of a framework with support for plugins, aliases, completions,
+custom scripts and functions, themes, updates, search, etc. Here is a quick summary of some help options:</p>
+<pre class="code literal-block"><span></span>bash-it show aliases        # shows installed and available aliases
+bash-it show completions    # shows installed and available completions
+bash-it show plugins        # shows installed and available plugins
+bash-it help aliases        # shows help for installed aliases
+bash-it help completions    # shows help for installed completions
+bash-it help plugins        # shows help for installed plugins
+</pre>
+
+
+<p>I even stumbled upon a few issues and feature requests myself, which I proceeded to contribute back as time allowed.
+I have most recently created and contributed my own <a href="https://github.com/Bash-it/bash-it/blob/master/themes/font/font.theme.bash">font theme</a>.
+It supports the following prompt features:</p>
+<ul>
+<li>time</li>
+<li>Python virtual environment</li>
+<li>user</li>
+<li>host</li>
+<li>path</li>
+<li>git repo</li>
+<li>git branch</li>
+<li>git dirty/not dirty</li>
+<li>return code status of last command</li>
+</ul>
+<p>Here is a <a href="https://github.com/font/bash-it/tree/font_theme/themes/font#screenshot">screenshot</a> of it in action.</p>
+<p>Check it out and let me know how you like it!</p>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul class="pager hidden-print">
+<li class="previous">
+                <a href="../pacman-nginx-app/" rel="prev" title="Pacman NGINX PHP MongoDB Application">Previous post</a>
+            </li>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="ivanfont",
+            disqus_url="http://ivanfont.com/posts/bash-it-an-alternative-to-oh-my-zsh/",
+        disqus_title="bash-it: an alternative to oh-my-zsh",
+        disqus_identifier="cache/posts/bash-it-an-alternative-to-oh-my-zsh.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="ivanfont";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2017         <a href="mailto:">Ivan Font</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

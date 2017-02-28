@@ -7,98 +7,102 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>http://ivanfont.com/</loc>
-  <lastmod>2017-02-28T21:49:00Z</lastmod>
+  <lastmod>2017-02-28T23:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://ivanfont.com/2016/</loc>
-  <lastmod>2017-02-28T21:49:00Z</lastmod>
+  <lastmod>2017-02-28T23:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://ivanfont.com/2017/</loc>
-  <lastmod>2017-02-28T21:49:00Z</lastmod>
+  <lastmod>2017-02-28T23:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://ivanfont.com/archive.html</loc>
-  <lastmod>2017-02-28T21:49:00Z</lastmod>
+  <lastmod>2017-02-28T23:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://ivanfont.com/categories/</loc>
-  <lastmod>2017-02-28T21:49:00Z</lastmod>
+  <lastmod>2017-02-28T23:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://ivanfont.com/categories/cat_kubernetes/</loc>
-  <lastmod>2017-02-28T21:49:00Z</lastmod>
+  <lastmod>2017-02-28T23:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://ivanfont.com/categories/cat_tech/</loc>
-  <lastmod>2017-02-28T21:49:00Z</lastmod>
+  <lastmod>2017-02-28T23:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://ivanfont.com/categories/ceph/</loc>
-  <lastmod>2017-02-28T21:49:00Z</lastmod>
+  <lastmod>2017-02-28T23:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://ivanfont.com/categories/cloud/</loc>
-  <lastmod>2017-02-28T21:49:00Z</lastmod>
+  <lastmod>2017-02-28T23:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://ivanfont.com/categories/game/</loc>
-  <lastmod>2017-02-28T21:49:00Z</lastmod>
+  <lastmod>2017-02-28T23:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://ivanfont.com/categories/gce/</loc>
-  <lastmod>2017-02-28T21:49:00Z</lastmod>
+  <lastmod>2017-02-28T23:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://ivanfont.com/categories/google-compute-engine/</loc>
-  <lastmod>2017-02-28T21:49:00Z</lastmod>
+  <lastmod>2017-02-28T23:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://ivanfont.com/categories/kubernetes/</loc>
-  <lastmod>2017-02-28T21:49:00Z</lastmod>
+  <lastmod>2017-02-28T23:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://ivanfont.com/categories/mongodb/</loc>
-  <lastmod>2017-02-28T21:49:00Z</lastmod>
+  <lastmod>2017-02-28T23:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://ivanfont.com/categories/nginx/</loc>
-  <lastmod>2017-02-28T21:49:00Z</lastmod>
+  <lastmod>2017-02-28T23:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://ivanfont.com/categories/pacman/</loc>
-  <lastmod>2017-02-28T21:49:00Z</lastmod>
+  <lastmod>2017-02-28T23:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://ivanfont.com/categories/storage/</loc>
-  <lastmod>2017-02-28T21:49:00Z</lastmod>
+  <lastmod>2017-02-28T23:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://ivanfont.com/categories/tech/</loc>
-  <lastmod>2017-02-28T21:49:00Z</lastmod>
+  <lastmod>2017-02-28T23:32:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://ivanfont.com/posts/bash-it-an-alternative-to-oh-my-zsh/</loc>
+  <lastmod>2017-02-28T23:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://ivanfont.com/posts/ceph-on-gce-kubernetes-cluster/</loc>
-  <lastmod>2017-02-28T21:49:00Z</lastmod>
+  <lastmod>2017-02-28T23:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://ivanfont.com/posts/creating-custom-kubernetes-cluster-using-google-compute-engine-gce/</loc>
-  <lastmod>2017-02-28T21:49:00Z</lastmod>
+  <lastmod>2017-02-28T23:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://ivanfont.com/posts/hello-world/</loc>
-  <lastmod>2017-02-28T21:49:00Z</lastmod>
+  <lastmod>2017-02-28T23:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://ivanfont.com/posts/pacman-nginx-app/</loc>
-  <lastmod>2017-02-28T21:49:00Z</lastmod>
+  <lastmod>2017-02-28T23:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://ivanfont.com/stories/</loc>
-  <lastmod>2017-02-28T21:49:00Z</lastmod>
+  <lastmod>2017-02-28T23:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://ivanfont.com/stories/about-me/</loc>
-  <lastmod>2017-02-28T21:49:00Z</lastmod>
+  <lastmod>2017-02-28T23:32:00Z</lastmod>
  </url>
 </urlset>

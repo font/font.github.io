@@ -1,5 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ivan Font</title><link>http://ivanfont.com/</link><description>Ivan Font</description><atom:link type="application/rss+xml" rel="self" href="http://ivanfont.com/rss.xml"></atom:link><language>en</language><lastBuildDate>Tue, 28 Feb 2017 21:49:28 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Pacman NGINX PHP MongoDB Application</title><link>http://ivanfont.com/posts/pacman-nginx-app/</link><dc:creator>Ivan Font</dc:creator><description>&lt;div&gt;&lt;h3&gt;Intro&lt;/h3&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ivan Font</title><link>http://ivanfont.com/</link><description>Ivan Font</description><atom:link rel="self" href="http://ivanfont.com/rss.xml" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Tue, 28 Feb 2017 23:32:10 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>bash-it: an alternative to oh-my-zsh</title><link>http://ivanfont.com/posts/bash-it-an-alternative-to-oh-my-zsh/</link><dc:creator>Ivan Font</dc:creator><description>&lt;div&gt;&lt;h3&gt;Trying out zsh&lt;/h3&gt;
+&lt;p&gt;I have noticed that many people seem to be switching shells to &lt;code&gt;zsh&lt;/code&gt;. In fact, I even tried it myself to see what the hype was all about. :)&lt;/p&gt;
+&lt;p&gt;So for a while there I was actually feeling just as good using &lt;code&gt;zsh&lt;/code&gt; as &lt;code&gt;bash&lt;/code&gt;. That was until I started discovering some idiosyncrasies with &lt;code&gt;zsh&lt;/code&gt; that were different from &lt;code&gt;bash&lt;/code&gt;.
+It appeared that &lt;code&gt;zsh&lt;/code&gt; was not quite as backwards compatible with &lt;code&gt;bash&lt;/code&gt;. Even though it seems to support the same features, it does so with similar but
+different syntax. This made it quite painful because every system I work on has &lt;code&gt;bash&lt;/code&gt; installed and used by default, but not necessarily &lt;code&gt;zsh&lt;/code&gt;. Also,
+many scripts out there in repositories are all coded to use &lt;code&gt;bash&lt;/code&gt;. Now of course you can specify the shebang to make sure the scripts use &lt;code&gt;bash&lt;/code&gt;, but why would I want to use a different shell
+than the scripts or systems I'm working with use themselves? I would then have to learn and maintain scripts for two different shells depending on what
+I'm working on.&lt;/p&gt;
+&lt;h4&gt;oh-my-zsh&lt;/h4&gt;
+&lt;p&gt;I'll also add that the most promising feature of switching to &lt;code&gt;zsh&lt;/code&gt; was the awesome &lt;a href="https://github.com/robbyrussell/oh-my-zsh"&gt;&lt;code&gt;oh-my-zsh&lt;/code&gt;&lt;/a&gt; GitHub project that gives you a highly customizable framework.
+This seemed to clearly be lacking in &lt;code&gt;bash&lt;/code&gt; and so it was this that made it quite compelling for me at first. In addition, I agree that &lt;code&gt;zsh&lt;/code&gt;
+does have some nice features that work right out of the gate, but it felt like it was more to do with &lt;code&gt;oh-my-zsh&lt;/code&gt; than &lt;code&gt;zsh&lt;/code&gt; itself.
+Therefore, nothing was really compelling enough that you couldn't do with &lt;code&gt;bash&lt;/code&gt;, albiet with some customizations.&lt;/p&gt;
+&lt;h3&gt;Moving back to bash&lt;/h3&gt;
+&lt;h4&gt;bash-it&lt;/h4&gt;
+&lt;p&gt;This is where I stumbled upon &lt;a href="https://github.com/Bash-it/bash-it"&gt;bash-it&lt;/a&gt;. It literally promotes itself as being a
+shameless ripoff of &lt;a href="https://github.com/robbyrussell/oh-my-zsh"&gt;oh-my-zsh&lt;/a&gt;. Finally, this seemed to be the piece that was missing from &lt;code&gt;bash&lt;/code&gt; that one was able to get
+with &lt;code&gt;zsh&lt;/code&gt; quite easily. I immediately started using it and enjoyed bashing again.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/Bash-it/bash-it"&gt;bash-it&lt;/a&gt; has all of the benefits of a framework with support for plugins, aliases, completions,
+custom scripts and functions, themes, updates, search, etc. Here is a quick summary of some help options:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;bash-it show aliases        # shows installed and available aliases
+bash-it show completions    # shows installed and available completions
+bash-it show plugins        # shows installed and available plugins
+bash-it help aliases        # shows help for installed aliases
+bash-it help completions    # shows help for installed completions
+bash-it help plugins        # shows help for installed plugins
+&lt;/pre&gt;
+
+
+&lt;p&gt;I even stumbled upon a few issues and feature requests myself, which I proceeded to contribute back as time allowed.
+I have most recently created and contributed my own &lt;a href="https://github.com/Bash-it/bash-it/blob/master/themes/font/font.theme.bash"&gt;font theme&lt;/a&gt;.
+It supports the following prompt features:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;time&lt;/li&gt;
+&lt;li&gt;Python virtual environment&lt;/li&gt;
+&lt;li&gt;user&lt;/li&gt;
+&lt;li&gt;host&lt;/li&gt;
+&lt;li&gt;path&lt;/li&gt;
+&lt;li&gt;git repo&lt;/li&gt;
+&lt;li&gt;git branch&lt;/li&gt;
+&lt;li&gt;git dirty/not dirty&lt;/li&gt;
+&lt;li&gt;return code status of last command&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here is a &lt;a href="https://github.com/font/bash-it/tree/font_theme/themes/font#screenshot"&gt;screenshot&lt;/a&gt; of it in action.&lt;/p&gt;
+&lt;p&gt;Check it out and let me know how you like it!&lt;/p&gt;&lt;/div&gt;</description><guid>http://ivanfont.com/posts/bash-it-an-alternative-to-oh-my-zsh/</guid><pubDate>Tue, 28 Feb 2017 21:56:50 GMT</pubDate></item><item><title>Pacman NGINX PHP MongoDB Application</title><link>http://ivanfont.com/posts/pacman-nginx-app/</link><dc:creator>Ivan Font</dc:creator><description>&lt;div&gt;&lt;h3&gt;Intro&lt;/h3&gt;
 &lt;p&gt;I've started working on a Kubernetes reference application for demonstration purposes. This reference application will continue to evolve
 to also work with cloud federation capabilities in Kubernetes. I will provide updates as the application evolves.&lt;/p&gt;
 &lt;h3&gt;Pacman Game Architecture Brief Overview&lt;/h3&gt;

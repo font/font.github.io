@@ -10,7 +10,7 @@
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
 <link rel="canonical" href="http://ivanfont.com/">
-<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/pacman-nginx-app/" type="text/html">
+<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/bash-it-an-alternative-to-oh-my-zsh/" type="text/html">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -75,7 +75,69 @@
 
     
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/pacman-nginx-app/" class="u-url">Pacman NGINX PHP MongoDB Application</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/bash-it-an-alternative-to-oh-my-zsh/" class="u-url">bash-it: an alternative to oh-my-zsh</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Ivan Font
+            </span></p>
+            <p class="dateline"><a href="posts/bash-it-an-alternative-to-oh-my-zsh/" rel="bookmark"><time class="published dt-published" datetime="2017-02-28T13:56:50-08:00" title="2017-02-28">2017-02-28</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/bash-it-an-alternative-to-oh-my-zsh/#disqus_thread" data-disqus-identifier="cache/posts/bash-it-an-alternative-to-oh-my-zsh.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>Trying out zsh</h3>
+<p>I have noticed that many people seem to be switching shells to <code>zsh</code>. In fact, I even tried it myself to see what the hype was all about. :)</p>
+<p>So for a while there I was actually feeling just as good using <code>zsh</code> as <code>bash</code>. That was until I started discovering some idiosyncrasies with <code>zsh</code> that were different from <code>bash</code>.
+It appeared that <code>zsh</code> was not quite as backwards compatible with <code>bash</code>. Even though it seems to support the same features, it does so with similar but
+different syntax. This made it quite painful because every system I work on has <code>bash</code> installed and used by default, but not necessarily <code>zsh</code>. Also,
+many scripts out there in repositories are all coded to use <code>bash</code>. Now of course you can specify the shebang to make sure the scripts use <code>bash</code>, but why would I want to use a different shell
+than the scripts or systems I'm working with use themselves? I would then have to learn and maintain scripts for two different shells depending on what
+I'm working on.</p>
+<h4>oh-my-zsh</h4>
+<p>I'll also add that the most promising feature of switching to <code>zsh</code> was the awesome <a href="https://github.com/robbyrussell/oh-my-zsh"><code>oh-my-zsh</code></a> GitHub project that gives you a highly customizable framework.
+This seemed to clearly be lacking in <code>bash</code> and so it was this that made it quite compelling for me at first. In addition, I agree that <code>zsh</code>
+does have some nice features that work right out of the gate, but it felt like it was more to do with <code>oh-my-zsh</code> than <code>zsh</code> itself.
+Therefore, nothing was really compelling enough that you couldn't do with <code>bash</code>, albiet with some customizations.</p>
+<h3>Moving back to bash</h3>
+<h4>bash-it</h4>
+<p>This is where I stumbled upon <a href="https://github.com/Bash-it/bash-it">bash-it</a>. It literally promotes itself as being a
+shameless ripoff of <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a>. Finally, this seemed to be the piece that was missing from <code>bash</code> that one was able to get
+with <code>zsh</code> quite easily. I immediately started using it and enjoyed bashing again.</p>
+<p><a href="https://github.com/Bash-it/bash-it">bash-it</a> has all of the benefits of a framework with support for plugins, aliases, completions,
+custom scripts and functions, themes, updates, search, etc. Here is a quick summary of some help options:</p>
+<pre class="code literal-block"><span></span>bash-it show aliases        # shows installed and available aliases
+bash-it show completions    # shows installed and available completions
+bash-it show plugins        # shows installed and available plugins
+bash-it help aliases        # shows help for installed aliases
+bash-it help completions    # shows help for installed completions
+bash-it help plugins        # shows help for installed plugins
+</pre>
+
+
+<p>I even stumbled upon a few issues and feature requests myself, which I proceeded to contribute back as time allowed.
+I have most recently created and contributed my own <a href="https://github.com/Bash-it/bash-it/blob/master/themes/font/font.theme.bash">font theme</a>.
+It supports the following prompt features:</p>
+<ul>
+<li>time</li>
+<li>Python virtual environment</li>
+<li>user</li>
+<li>host</li>
+<li>path</li>
+<li>git repo</li>
+<li>git branch</li>
+<li>git dirty/not dirty</li>
+<li>return code status of last command</li>
+</ul>
+<p>Here is a <a href="https://github.com/font/bash-it/tree/font_theme/themes/font#screenshot">screenshot</a> of it in action.</p>
+<p>Check it out and let me know how you like it!</p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/pacman-nginx-app/" class="u-url">Pacman NGINX PHP MongoDB Application</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">
                 Ivan Font

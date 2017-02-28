@@ -662,3 +662,9 @@ article.post-micro {
         display: none;
     }
 }
+
+/* Color of code using backticks to match GitHub */
+code {
+    color: #333;
+    background-color: rgba(0,0,0,0.04);
+}
