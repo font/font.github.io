@@ -144,7 +144,7 @@ NAVIGATION_LINKS = {
 }
 
 # Name of the theme to use.
-THEME = "bootstrap3"
+THEME = "custom_cerulean"
 
 # Primary color of your theme. This will be used to customize your theme and
 # auto-generate related colors in POSTS_SECTION_COLORS. Must be a HEX value.
@@ -1087,19 +1087,19 @@ COPY_SOURCES = False
 # """ % SITE_URL
 #
 # If you prefer a Google search form, here's an example that should just work:
-# SEARCH_FORM = """
-# <!-- Google custom search -->
-# <form method="get" action="https://www.google.com/search" class="navbar-form navbar-right" role="search">
-# <div class="form-group">
-# <input type="text" name="q" class="form-control" placeholder="Search">
-# </div>
-# <button type="submit" class="btn btn-primary">
-# 	<span class="glyphicon glyphicon-search"></span>
-# </button>
-# <input type="hidden" name="sitesearch" value="%s">
-# </form>
-# <!-- End of custom search -->
-# """ % SITE_URL
+SEARCH_FORM = """
+<!-- Google custom search -->
+<form method="get" action="https://www.google.com/search" class="navbar-form navbar-right" role="search">
+<div class="form-group">
+<input type="text" name="q" class="form-control" placeholder="Search">
+</div>
+<button type="submit" class="btn btn-primary">
+	<span class="glyphicon glyphicon-search"></span>
+</button>
+<input type="hidden" name="sitesearch" value="%s">
+</form>
+<!-- End of custom search -->
+""" % SITE_URL
 
 # Use content distribution networks for jQuery, twitter-bootstrap css and js,
 # and html5shiv (for older versions of Internet Explorer)
