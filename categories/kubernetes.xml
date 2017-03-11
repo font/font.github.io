@@ -1,21 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ivan Font (Posts about kubernetes)</title><link>http://ivanfont.com/</link><description></description><atom:link rel="self" href="http://ivanfont.com/categories/kubernetes.xml" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Tue, 28 Feb 2017 23:32:10 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Pacman NGINX PHP MongoDB Application</title><link>http://ivanfont.com/posts/pacman-nginx-app/</link><dc:creator>Ivan Font</dc:creator><description>&lt;div&gt;&lt;h3&gt;Intro&lt;/h3&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Ivan Font (Posts about kubernetes)</title><link>http://ivanfont.com/</link><description></description><atom:link rel="self" type="application/rss+xml" href="http://ivanfont.com/categories/kubernetes.xml"></atom:link><language>en</language><lastBuildDate>Sat, 11 Mar 2017 03:25:51 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Pac-Man Application Using Kubernetes Federation</title><link>http://ivanfont.com/posts/pac-man-application-using-kubernetes-federation/</link><dc:creator>Ivan Font</dc:creator><description>&lt;div&gt;&lt;h3&gt;Pac-Man Microservices Architecture Game Update&lt;/h3&gt;
+&lt;p&gt;Previously I discussed the next phase of the
+&lt;a href="http://ivanfont.com/posts/pacman-nginx-app/"&gt;Pac-Man + NGINX + PHP + MongoDB Kubernetes reference application&lt;/a&gt;
+was to deploy the application using a
+&lt;a href="https://kubernetes.io/docs/user-guide/federation/"&gt;Kubernetes Federation&lt;/a&gt;.
+This was accomplished and you can
+&lt;a href="https://github.com/font/k8s-example-apps/blob/master/pacman-nginx-app/docs/pacman-nginx-app-federated-cluster.md"&gt;read about the details here&lt;/a&gt;.
+But in general, federation made it really easy to
+manage multiple Kubernetes clusters through one pane of glass by deploying the Pac-Man Kubernetes
+resources onto the clusters that are part of the federation. It automatically added the necessary
+DNS entries for the services deployed to provide a load balanced application across all of the
+clusters. This turned the Pac-Man microservices architecture game into a fully scalable
+high-availability game.&lt;/p&gt;
+&lt;h3&gt;New Features&lt;/h3&gt;
+&lt;h5&gt;MongoDB Replica Set&lt;/h5&gt;
+&lt;p&gt;Part of moving to a federation required a data replication strategy so your application's data could
+scale horizontally as well. This required setting up a
+&lt;a href="https://docs.mongodb.com/manual/replication/"&gt;MongoDB Replica Set&lt;/a&gt;. Unfortunately, MongoDB requires
+many operations to only be performed on the primary. For example, MongoDB allows reading from many
+instances, but only the primary can receive writes. In addition, adding replica set members can only
+be done on the primary. Unfortunately this, combined with the fact that federation at the time of
+this writing does not yet support things like
+&lt;a href="https://kubernetes.io/docs/concepts/abstractions/controllers/statefulsets/"&gt;StatefulSets&lt;/a&gt;,
+involved a bit of manual intervention to bootstrap the MongoDB replica set than I would like.&lt;/p&gt;
+&lt;h5&gt;Pac-Man Zone&lt;/h5&gt;
+&lt;p&gt;Once the application was deployed in the federation, I modified it to add a &lt;code&gt;Zone:&lt;/code&gt; field that would
+retrieve the zone of the Pac-Man game instance you were connecting to via the load balanced DNS.
+That is, the federated DNS was updated to resolve to the set of IP addresses of the Pac-Man
+game service in each of the federated zones to provide load balancing. Multiple refreshes of
+the game would continually update the zone you were connecting to and display that for you
+above your score. Once you were done playing and saved your high score, the zone
+information was also saved along with it.&lt;/p&gt;
+&lt;h3&gt;Learnings&lt;/h3&gt;
+&lt;p&gt;At first, I was creating the
+&lt;a href="https://github.com/font/kubernetes-cluster-federation/tree/v1.5.3"&gt;Kubernetes federation manually&lt;/a&gt;
+but this became cumbersome and time consuming so I moved to use
+&lt;a href="https://kubernetes.io/docs/admin/federation/kubefed/"&gt;kubefed&lt;/a&gt; which really helped speed up
+the process of creating a federated cluster.
+&lt;a href="https://github.com/font/k8s-example-apps/blob/master/pacman-nginx-app/docs/kubernetes-cluster-federation.md"&gt;Steps for doing that are captured here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In addition, I learned about some limitations with MongoDB and not having StatefulSets that may pose
+problems as the application evolves.&lt;/p&gt;
+&lt;h3&gt;Next Steps&lt;/h3&gt;
+&lt;p&gt;I'd like to see about performing coordinated migrations of the application as well as handling
+failover. What would make those tests more interesting is having a larger volume of transactions
+happening in the game, such as updating more data points on a regular interval defined in the game,
+while performing those tests. In order to increase complexity in the game I've contemplated
+migrating the backend to something more adept at handling that task. In any event, doing failover
+tests may bump up against limitations of MongoDB and the lack of Statefulsets. Time will tell.&lt;/p&gt;
+&lt;h3&gt;GitHub Link&lt;/h3&gt;
+&lt;p&gt;You can read all about the
+&lt;a href="https://github.com/font/k8s-example-apps/blob/master/pacman-nginx-app/docs/pacman-nginx-app-federated-cluster.md"&gt;details of how to set up the Pac-Man microservices architecture game here&lt;/a&gt;.&lt;/p&gt;&lt;/div&gt;</description><category>game</category><category>gce</category><category>google compute engine</category><category>kubernetes</category><category>mongodb</category><category>nginx</category><category>pacman</category><guid>http://ivanfont.com/posts/pac-man-application-using-kubernetes-federation/</guid><pubDate>Sat, 11 Mar 2017 01:33:34 GMT</pubDate></item><item><title>Pac-Man NGINX PHP MongoDB Application</title><link>http://ivanfont.com/posts/pacman-nginx-app/</link><dc:creator>Ivan Font</dc:creator><description>&lt;div&gt;&lt;h3&gt;Intro&lt;/h3&gt;
 &lt;p&gt;I've started working on a Kubernetes reference application for demonstration purposes. This reference application will continue to evolve
 to also work with cloud federation capabilities in Kubernetes. I will provide updates as the application evolves.&lt;/p&gt;
-&lt;h3&gt;Pacman Game Architecture Brief Overview&lt;/h3&gt;
-&lt;h4&gt;Pacman&lt;/h4&gt;
-&lt;p&gt;The Pacman game is a slightly modified version of the open source Pacman game written in HTML5 with Javascript. You can get the modified
-&lt;a href="https://github.com/font/pacman-canvas"&gt;Pacman game source code here&lt;/a&gt;. The modifications are particularly around the backend PHP API. The original
+&lt;h3&gt;Pac-Man Game Architecture Brief Overview&lt;/h3&gt;
+&lt;h4&gt;Pac-Man&lt;/h4&gt;
+&lt;p&gt;The Pac-Man game is a slightly modified version of the open source Pac-Man game written in HTML5 with Javascript. You can get the modified
+&lt;a href="https://github.com/font/pacman-canvas"&gt;Pac-Man game source code here&lt;/a&gt;. The modifications are particularly around the backend PHP API. The original
 game used SQLite3 as the storage backend for reading and writing high scores. This change replaces SQLite3 with &lt;a href="https://www.mongodb.com/"&gt;MongoDB&lt;/a&gt;
 as the storage mechanism.&lt;/p&gt;
 &lt;h4&gt;NGINX + PHP FPM&lt;/h4&gt;
-&lt;p&gt;&lt;a href="https://www.nginx.com/"&gt;NGINX&lt;/a&gt; is used as the web server to host the Pacman game application. It is configured with &lt;a href="https://php-fpm.org/"&gt;PHP FPM&lt;/a&gt; support for the backend PHP API.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.nginx.com/"&gt;NGINX&lt;/a&gt; is used as the web server to host the Pac-Man game application. It is configured with &lt;a href="https://php-fpm.org/"&gt;PHP FPM&lt;/a&gt; support for the backend PHP API.&lt;/p&gt;
 &lt;h4&gt;PHP&lt;/h4&gt;
 &lt;p&gt;PHP FPM is used for the PHP API to receive read and write requests from clients and perform database operations. The
 &lt;a href="http://php.net/manual/en/set.mongodb.php"&gt;PHP MongoDB driver extension&lt;/a&gt; contains the minimal API for core driver functionality. In addition, the
 &lt;a href="http://php.net/manual/en/mongodb.tutorial.library.php"&gt;PHP library for MongoDB&lt;/a&gt; provides the higher level APIs. Both are needed.&lt;/p&gt;
 &lt;h4&gt;MongoDB&lt;/h4&gt;
-&lt;p&gt;&lt;a href="https://www.mongodb.com/"&gt;MongoDB&lt;/a&gt; is used as the backend database to store the Pacman game's high score user data.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.mongodb.com/"&gt;MongoDB&lt;/a&gt; is used as the backend database to store the Pac-Man game's high score user data.&lt;/p&gt;
 &lt;h3&gt;Conclusion&lt;/h3&gt;
 &lt;p&gt;For a detailed overview of the Kubernetes reference application and how to set it up yourself, see the
 &lt;a href="https://github.com/font/k8s-example-apps/tree/master/pacman-nginx-app"&gt;README&lt;/a&gt; in the repository.&lt;/p&gt;
